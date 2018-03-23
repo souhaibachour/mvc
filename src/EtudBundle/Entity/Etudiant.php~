@@ -1,0 +1,79 @@
+<?php
+
+namespace EtudBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Etudiant
+ *
+ * @ORM\Table(name="etudiant")
+ * @ORM\Entity(repositoryClass="EtudBundle\Repository\EtudiantRepository")
+ */
+class Etudiant
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="username", type="string", length=255)
+     */
+    private $username;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenom", type="string", length=255)
+     */
+    private $prenom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255)
+     */
+    private $email;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="age", type="integer")
+     */
+    private $age;
+
+   
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sexe", type="string", length=255)
+     */
+    private $sexe;   
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+
+
+     /**
+     * @ORM\ManyToOne(targetEntity="Clase", inversedBy="etudiants")
+     * @ORM\JoinColumn(name="clase_id", referencedColumnName="id")
+     */
+    private $clase;
+}
